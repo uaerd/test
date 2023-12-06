@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conclusion</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/main.js"></script>
+      <script src="../js/information.js"></script>
+  
+</head>
+<body>
+    <script>
+    hasNoURLParameters()
+    getScore_name_ageFromURL()
+    </script>
+    <table>
+        <thead>
+            <td>ระดับ</td>
+            <td>คำอธิบาย</td>
+            <td>วิธีการรับมือ</td>
+        </thead>
+        <tbody id="tbody1"></tbody>
+    </table>
+    <ul id="activityList"></ul>
+    <script>
+        getScoreFromURL()
+        document.addEventListener("DOMContentLoaded", function() {
+            // ดึงค่าอายุจาก URL Parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const age = parseInt(urlParams.get("age"));
+            const score = parseInt(urlParams.get("score"));
+            // กิจกรรมที่แนะนำตามช่วงวัย
+            const p = document.createElement("p")
+            p.innerText = `เนื่องจากคุณอายุ: ${age} นี้คือ กิจกรรมที่เนะนำที่อาจช่วยคุณได้:)`
+            let recommendedActivities = [];
+            if (age >= 0 && age <= 12 && score >= 40) {
+                recommendedActivities = ["การเล่นเกมและของเล่นที่สร้างสรรค์", "การทำศิลปะและงานฝีมือ", "การอ่านหนังสือ"];
+            } else if (age >= 13 && age <= 19 && score >= 40) {
+                recommendedActivities = ["กิจกรรมกลุ่ม", "การทดลองกับงานอาชีพ", "กิจกรรมที่เกี่ยวข้องกับศิลปะ"];
+            } else if (age >= 20 && age <= 39 && score >= 40) {
+                recommendedActivities = ["การเข้าร่วมกิจกรรมสังคม", "การทำกิจกรรมทางอาชีพ", "การเล่นกีฬาและฟิตเนส"];
+            } else if (age >= 40 && age <= 64 && score >= 40) {
+                recommendedActivities = ["การศึกษาและการเรียนรู้ใหม่", "กิจกรรมที่เพิ่มสุขภาพ", "การเข้าร่วมกิจกรรมชุมชน"];
+            } else {
+                recommendedActivities = ["กิจกรรมทางสังคม", "การเล่นเกมและกิจกรรมทางความคิด", "การศึกษาออนไลน์"];
+            }
+            
+            // สร้าง HTML สำหรับแสดงกิจกรรมที่แนะนำ
+            const activityList = document.getElementById("activityList");
+            activityList.appendChild(p);
+            recommendedActivities.forEach(activity => {
+                const listItem = document.createElement("li");
+                listItem.textContent = activity;
+                activityList.appendChild(listItem);
+                
+            });
+        });
+
+    </script>
+</body>
+</html>

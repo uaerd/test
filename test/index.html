@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stress Test</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/main.js"></script>
+  <script src="../js/run.js"></script>
+  <script src="../js/information.js"></script>
+  <script>hasNoURLParameters()</script>
+</head>
+
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>คำถาม</th>
+        <th>ไม่เคยเป็น</th>
+        <th>เป็นบางครั้ง</th>
+        <th>เป็นบ่อยๆ</th>
+        <th>เป็นประจำ</th>
+      </tr>
+    </thead>
+    <tbody id="tbody1">
+      <!-- ตัวอย่างเพียง 1 ข้อ -->
+      <tr>
+        <td>1. นอนไม่หลับเพราะคิดมากหรือกังวลใจ</td>
+        <td><input type="radio" name="q1" value="0"></td>
+        <td><input type="radio" name="q1" value="1"></td>
+        <td><input type="radio" name="q1" value="2"></td>
+        <td><input type="radio" name="q1" value="3"></td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- เพิ่มปุ่ม Submit หลังจากตาราง -->
+  <button type="submit" onclick="go_to_Conclusion()">Submit</button>
+</body>
+</html>
